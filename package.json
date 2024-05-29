@@ -16,7 +16,9 @@
     "express": "^4.19.2",
     "jest": "^29.7.0",
     "prisma": "^5.14.0",
-    "supertest": "^7.0.0",
+    "supertest": "^7.0.0"
+  },
+  "devDependencies": {
     "typescript": "^5.4.5"
   }
 }
