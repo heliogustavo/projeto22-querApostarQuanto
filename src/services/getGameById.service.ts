@@ -1,6 +1,8 @@
-import { getGameByIdDB } from "repositories/getGameById.repository ";
+import { findBetsByGameId } from "../repositories/findBetsByGameId.repository";
 
 
-export async function getGameByIdService() {
-    const addGame = await getGameByIdDB() 
+export async function getGameByIdService(gameId:number) {
+    const oneGameWithBets = await findBetsByGameId(gameId) 
+
+    return oneGameWithBets
 }

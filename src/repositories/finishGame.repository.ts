@@ -1,10 +1,13 @@
-import client from "database/database";
+import client from "../database/database";
 
-
-export async function finishGameRepository(gameId: number) {
-    const game = await client.game.update({
-      where: { id: gameId },
-      data: { isFinished: true },
-    });
-    return game;
-  }
+export async function finishGameRepository(gameId: number, homeTeamScore: number, awayTeamScore: number) {
+  const game = await client.game.update({
+    where: { id: gameId },
+    data: {
+      isFinished: true,
+      homeTeamScore: homeTeamScore,
+      awayTeamScore: awayTeamScore,
+    },
+  });
+  return game;
+}
