@@ -36,7 +36,7 @@ model Bet {
   amountBet      Int
   gameId         Int
   participantId  Int
-  status         String
+  status         String   @default("PENDING") //importante?
   amountWon      Int?     // esse é o Valor total ganho na aposta ou nulo enquanto a aposta ainda está PENDING
   game           Game      @relation(fields: [gameId], references: [id])
 

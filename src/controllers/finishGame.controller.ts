@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import client from 'database/database';
+import { toFinishGameService } from 'services/finishGame.service';
 
 export async function finishGame(req: Request, res: Response) {
     const gameId = parseInt(req.params.id, 10);
@@ -9,11 +9,7 @@ export async function finishGame(req: Request, res: Response) {
     }
   
     try {
-      const game = await client.game.update({
-        where: { id: gameId },
-        data: { isFinished: true },
-      });
-  
+      const game = await toFinishGameService(gameId);
       res.status(200).json(game);
     } catch (error) {
       if (error instanceof Error) {
