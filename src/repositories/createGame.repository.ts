@@ -1,6 +1,6 @@
 
 
 
-export async  function createGameDB (){
+export async  function createGameDB ({homeTeamName, awayTeamName}: {homeTeamName:string, awayTeamName:string}){
     return
 }

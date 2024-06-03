@@ -1,6 +1,20 @@
+import { Request, Response } from 'express';
 import { addGameService } from "../services/createGame.service";
 
+export async function newGame(req: Request, res: Response) {
+    const { homeTeamName, awayTeamName } = req.body;
+    
+  try {
+    if (!homeTeamName || !awayTeamName) {
+      return res.status(400).json({ error: 'Both homeTeamName and awayTeamName are required' });
+    }
 
-export async function newGame (){
-    const newGame = await addGameService()
+    const newGame = await addGameService({homeTeamName, awayTeamName}); //com ou sem {}?
+
+    return res.status(201).json(newGame);
+    
+  } catch (error) {
+    console.error('Error creating new game:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
 }

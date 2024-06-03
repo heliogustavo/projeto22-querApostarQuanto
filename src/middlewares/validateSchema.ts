@@ -2,7 +2,6 @@ import Joi from "joi"
 
 export function validateSchema(schema: Joi.Schema){
     return (req: { body: any }, res: any, next: any)=>{
-        console.log("passei no return do validate")
 
         const validation = schema.validate(req.body, { abortEarly: false })
 
