@@ -11,3 +11,5 @@ export async function finishGameRepository(gameId: number, homeTeamScore: number
   });
   return game;
 }
+
+//eu poderia criar toda a chamada dentro do return, sem precisar arazenar numa variável, qual a diferença?

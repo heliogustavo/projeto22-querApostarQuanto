@@ -8,8 +8,8 @@ import { newGameSchema } from "../schemas/newGameSchema";
 
  export const createGameRouter = Router()
 
- createGameRouter.post("create-game",validateSchema(newGameSchema), newGame)
- createGameRouter.get("games-list", getGamesList)
- createGameRouter.get("game-details/:id", getGameById)
- createGameRouter.post("games/:id/finish", finishGame)
+ createGameRouter.post("/create-game", validateSchema(newGameSchema), newGame)
+ createGameRouter.get("/games-list", getGamesList)
+ createGameRouter.get("/game-details/:id", getGameById)
+ createGameRouter.post("/games/:id/finish", finishGame)
 
